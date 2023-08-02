@@ -1,0 +1,20 @@
+{% extends 'registration/structure.html' %}
+{% block title %}Register{% endblock title %}
+{% block registrationBlock %}
+    <div class="masthead">
+            <div class="masthead-content text-white">
+                <div class="container-fluid px-4 px-lg-0">
+                    <h1 class="fst-italic lh-1 mb-2">Login | Sign-Up</h1>
+                    <p class="mb-5">It's Free</p>
+                    <!-- https://startbootstrap.com/solution/contact-forms-->
+                    <!-- to get an API token!-->
+                    <form id="contactForm" data-sb-form-api-token="API_TOKEN" action="" method="post">
+                        {% csrf_token %}
+                    {{ form.as_p}}
+                        <button type="submit" class="btn-dark">submit</button>
+                        <span style="float: right">Already have an account <a href="{% url 'base:dashboard' %}">Login</a></span>
+                    </form>
+                </div>
+            </div>
+        </div>
+{% endblock registrationBlock %}

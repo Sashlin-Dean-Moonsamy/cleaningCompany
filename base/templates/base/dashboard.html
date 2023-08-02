@@ -1,0 +1,42 @@
+{% extends 'base/dashboard_structure.html' %}
+{% block title %}dashboard{% endblock title %}
+
+
+{% block cont %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+
+
+    {% if user.is_authenticated %}
+        <h1>{{ user.get_username }} Appointments</h1>
+    {% endif %}
+<tabel class="table table-hover table-dark">
+    <thead>
+    <tr>
+        <th scope="col">Team</th>
+        <th scope="col">Date</th>
+        <th scope="col">start time</th>
+        <th scope="col">end time</th>
+    </tr>
+    </thead>
+    <br>
+    <tbody>
+    {% for appointment in appointments %}
+        <tr>
+            <th>{{ appointment.team.name }}</th>
+            <td>{{ appointment.date }}</td>
+            <td>{{ appointment.start_time }}</td>
+            <td>{{ appointment.end_time }}</td>
+        </tr>
+        <br>
+    {% endfor %}
+    </tbody>
+</tabel>
+
+            </div>
+        </div>
+    </div>
+
+
+{% endblock cont %}
